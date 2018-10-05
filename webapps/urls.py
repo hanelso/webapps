@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+import helloweb.views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('hello/', helloweb.views.hello),
+    # path 는 urls.py에게 참조할 위치를 알려주는 것이기 때문에 위치와 이름만 알려주면 된다.(mapping)
+    # -> 그래서 views에 있는 hello 메소드를 호출 하는것이 아닌 hello라는 메소드 이름으로 mapping하는 것이다.
 ]

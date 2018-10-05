@@ -1,0 +1,42 @@
+1.
+helloweb app 생성하기
+    -> (venv) python manage.py startapp helloweb
+    -> 생성하면 helloweb 디렉토리 안에 migrations 디렉토리와 admin, apps, models, tests, views 의 .py파일이 생성된다.
+
+2.
+settings.py 에 INSTALLED_APPS 에 어플리케이션을 추가한다.
+    -> INSTALLED_APPS = [
+    ......,
+    ......,
+    ......,
+    ......,
+    'helloweb',
+    ]
+
+3.
+applicateion 의 views에 핸들러 함수 추가하기
+    -> helloweb/views.py 에 hello() 메소드 추가
+    -> def hello():
+            pass
+
+4.
+url 매핑
+    -> urls.py 에 views.py에 있는 hello 메소드를 매핑 해주기
+    -> urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('hello/', helloweb.views.hello),
+        # path 는 urls.py에게 참조할 위치를 알려주는 것이기 때문에 위치와 이름만 알려주면 된다.(mapping)
+        # -> 그래서 views에 있는 hello 메소드를 호출 하는것이 아닌 hello라는 메소드 이름으로 mapping하는 것이다.
+    ]
+
+5.
+핸들러 함수에 처리 작업 코드 작성
+    -> model을 통한 DB CRUD 작업
+        -> 메일 보내기, 파일 저장, 등등...
+
+6.
+핸들러 함수에 응답 코드 작성
+    -> Template를 통한 HTML 응답
+    -> redirection 응답
+    -> 각종 에러에 대한 응답
+    -> JSON 응답
