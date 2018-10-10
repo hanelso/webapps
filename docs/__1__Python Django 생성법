@@ -79,4 +79,12 @@ template 디렉토리 설정
         ]
     -> webapps 프로젝트에 templates 디렉토리 생성
 
+11.
+static 자원(html, css, js, images, etc...)에 대한 접근설정
+    -> settings.py에서
+        STATICFILES_DIRS = (
+            os.path.join(BASE_DIR, 'statics')
+        )
+        STATIC_URL = '/assets/'
+
 ========================================================================================================================
